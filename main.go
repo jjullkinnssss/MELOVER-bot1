@@ -293,7 +293,11 @@ func handleCallback(bot *tgbotapi.BotAPI, cb *tgbotapi.CallbackQuery) {
 // --- генерация Excel ---
 func generateExcel(data []Student) string {
 	f := excelize.NewFile()
+
+	// Переименовываем лист с "Sheet1" на "Лист1"
 	sheet := f.GetSheetName(0)
+	f.SetSheetName(sheet, "Лист1")
+	sheet = "Лист1"
 
 	// --- Заголовки столбцов (в 1-й строке) ---
 	headers := []string{"№ Квартиры/дома", "Дата беседы", "ФИО", "Год рождения", "Номер телефона", "Место работы (учёбы)"}
