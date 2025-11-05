@@ -1,0 +1,11 @@
+services:
+  - type: worker
+    name: MELOVER-bot1
+    env: go
+    plan: free
+    buildCommand: go build -o app .
+    startCommand: ./app
+    autoDeploy: true
+    envVars:
+      - key: BOT_TOKEN
+        sync: false

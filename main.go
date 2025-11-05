@@ -40,6 +40,7 @@ func main() {
 		log.Panic("BOT_TOKEN is not set")
 	}
 	bot, err := tgbotapi.NewBotAPI(botToken)
+
 	if err != nil {
 		log.Panic(err)
 	}
