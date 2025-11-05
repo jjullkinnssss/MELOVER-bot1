@@ -35,7 +35,11 @@ type UserData struct {
 var users = make(map[int64]*UserData)
 
 func main() {
-	bot, err := tgbotapi.NewBotAPI("8400970685:AAEVOk4dnNYNYm6xFfKOFwA7qwD0Ut0sbVg")
+	botToken := os.Getenv("BOT_TOKEN")
+	if botToken == "" {
+		log.Panic("BOT_TOKEN is not set")
+	}
+	bot, err := tgbotapi.NewBotAPI(botToken)
 	if err != nil {
 		log.Panic(err)
 	}
